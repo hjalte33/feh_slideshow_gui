@@ -110,10 +110,13 @@ class App(tk.Frame):
         #self.pathlabel.config(text=filename)
     
     def start_slide(self):
-        command = 'feh '+ self.options.get_feh_args()+' '+self.path_name
-        command = command.split(' ')
-        print(command)    
-        call(command)
+        #put the command together 
+        command = 'feh '+ self.options.get_feh_args()+','+self.path_name
+        
+        #split list at all the commas so it is a list of lists and call the command
+        command = command.split(',')
+        #call(command)
+        print(command)
 
         
 root = tk.Tk()

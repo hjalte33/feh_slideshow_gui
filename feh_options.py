@@ -26,7 +26,8 @@ class FehOptions(object):
         # Reverse the sort order. Use this to invert the order of the filelist. E.g. to sort in reverse width order, use -nSwidth.
         self.options['reverse'] = {'lang_name':'baglæns','activated':BooleanVar(value=False),'btn_selectable':True,'feh_arg':'--reverse'}                 
         # float For slideshow mode, wait float seconds between automatically changing slides. Useful for presentations. Specify a negative number to set the delay (which will then be float * (-1)), but start feh in paused mode.
-        self.options['delay'] = {'lang_name':'forsinkelse', 'feh_arg':lambda:'--slideshow-delay '+ str(self._delay)}
+        # feh_arg as a comma because options are split at commas.
+        self.options['delay'] = {'lang_name':'forsinkelse', 'feh_arg':lambda:'--slideshow-delay,'+ str(self._delay)}
         
     def get_feh_args (self):
         output = ''
@@ -34,7 +35,7 @@ class FehOptions(object):
         for val in self.options.values():
             if 'activated' in val and val['activated'].get() == True:  # using short circuit evaluation to first check if activated is even in the list. 
                 output += (val['feh_arg'])
-                output += ' '
+                output += ','
         output += self.options['delay']['feh_arg']()      
         return(output)
 
