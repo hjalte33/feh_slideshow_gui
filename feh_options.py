@@ -1,7 +1,8 @@
 #This class holds options for the slideshow 
+# TODO this class has a lot of improvemensts to go throug. 
 from tkinter import BooleanVar
 
-# TODO 
+
 
 class FehOptions():
     """
