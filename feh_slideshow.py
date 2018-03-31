@@ -2,7 +2,7 @@ from collections import namedtuple
 import tkinter as tk
 import tkinter.filedialog
 from subprocess import call
-from feh_options import *
+from feh_options import FehOptions
 
 class App(tk.Frame):
     def __init__(self, master=None):
@@ -158,7 +158,7 @@ class App(tk.Frame):
         except ValueError:
             # Return false because the input could not be converted to a float
             return False
-            
+
         # If the function didn't return true anywhere it must have been a false input.     
         return False
 
@@ -187,7 +187,8 @@ class App(tk.Frame):
         
         #split list at all the commas so it is a list of lists and call the command
         command = command.split(',')
-        #call(command)
+        call(command)
+        # print for debugging
         print(command)
 
 # create a root element for tkinter        
