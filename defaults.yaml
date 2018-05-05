@@ -1,0 +1,81 @@
+auto_rotate:
+  name: auto rotering
+  activated:  false
+  btn_selectable: true
+  feh_arg:
+    - --auto-rotate
+
+zoom: 
+  name: fyld skærm 
+  activated:  true
+  btn_selectable: true 
+  feh_arg: 
+    - --zoom
+    - fill
+
+auto_zoom: 
+  name: auto zoom 
+  activated: false
+  btn_selectable: true 
+  feh_arg:
+    - --auto-zoom
+        
+borderless: 
+  name: uden kant 
+  activated: true
+  btn_selectable: false 
+  feh_arg:
+    - --borderless
+
+full_screen: 
+  name: fuld skærm 
+  activated: true 
+  btn_selectable: false 
+  feh_arg:
+    - --fullscreen
+
+hide_pointer:
+  name: skjul mus 
+  activated: true
+  btn_selectable: true 
+  feh_arg:
+    - --hide-pointer
+
+randomise:
+  name: tilfældig 
+  activated: false 
+  btn_selectable: true 
+  feh_arg:
+   - --randomize
+
+recursive:
+  name: rekursive 
+  activated: true 
+  btn_selectable: true 
+  feh_arg:
+    - --recursive
+
+reload_folder: 
+  name: auto genindlæs 
+  activated: false 
+  btn_selectable: false
+  feh_arg:
+    - --reload 
+
+reverse: 
+  name: baglæns 
+  activated: false 
+  btn_selectable: true 
+  feh_arg:
+    - --reverse
+
+delay: 
+  name: forsinkelse
+  activated: true
+  feh_arg: 
+    - --slideshow-delay 
+    - 5
+
+path:
+  name: sti
+  path: ~/Pictures
