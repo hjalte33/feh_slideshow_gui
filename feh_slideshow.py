@@ -187,7 +187,7 @@ class App(tk.Frame):
         
         #split list at all the commas so it is a list of lists and call the command
         command = command.split(',')
-        call(command)
+        # call(command)
         # print for debugging
         print(command)
 
