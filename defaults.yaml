@@ -1,7 +1,5 @@
 btn_selectables:
-  - auto_rotate
   - zoom
-  - auto_zoom
   - hide_pointer
   - randomize
   - recursive

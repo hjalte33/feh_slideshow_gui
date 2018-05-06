@@ -7,7 +7,7 @@ def warning_on_one_line(message, category, filename, lineno, file=None, line=Non
 warnings.formatwarning = warning_on_one_line
 
 class FehConfiguration():
-    def __init__(self,path ="./defaults.yaml",verbose = True):
+    def __init__(self,path ="./defaults.yaml",verbose = False):
          # Small verbose printer funciton
         self.verboseprint = print if verbose else lambda *a, **k: None
         
@@ -16,13 +16,16 @@ class FehConfiguration():
         self.load_configuration(path)   
 
     def set_option(self,name,activated,value=None):
-        """Set an option to a specific value
+        """Set on option in the configuration
         
         Arguments:
-            name {str} -- Name must be in the set of options name 
-                          given by the yaml configuration fil
-            *arg {*arg} -- A list of options that shall be set.
+            name {str} -- Name of the option 
+            activated {bool} -- Bolean deciding if the option is activated
+        
+        Keyword Arguments:
+            value {str, int, float} -- If the named option has a sublementary option (default: {None})
         """
+
         try:
             option = self.configuration['options'][name]
             self.verboseprint('Setting option %s' % name)
@@ -30,7 +33,7 @@ class FehConfiguration():
             # Activated is a bool 
             option['activated'] = activated
             self.verboseprint('\tActivation: %s' % activated)
-
+            
             # Value is none just pass
             if not value:
                 pass
@@ -50,10 +53,10 @@ class FehConfiguration():
             else:
                 # Warn the user that the value is not legal
                 warnings.warn('The value %s does not seem to be a legal value. The legal values are %s' % (value,option['values']))
+                print ("Ignoring given set value")
         
         except KeyError:
-            warnings.warn("Option %s does not exit in the configuration or the option does not have a sublementary argument." %name)
-            return
+            warnings.warn("Option %s does not exit in the configuration or the option does not have a sublementary argument." %name)  
 
 
     def load_configuration(self,path):
@@ -155,4 +158,4 @@ if __name__ == "__main__":
     obj = FehConfiguration()
     obj.set_option('zoom',True,'max')
     print(obj.get_feh_command())
-    #obj.save_options('./test.yaml')
+    #obj.save_options('./test.yaml') 
